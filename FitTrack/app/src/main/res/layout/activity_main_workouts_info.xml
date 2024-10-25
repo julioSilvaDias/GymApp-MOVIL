@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityWorkoutsInfo">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-42dp"
+        tools:layout_editor_absoluteY="78dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tituloWorkouts"
+            tools:layout_editor_absoluteX="175dp"
+            tools:layout_editor_absoluteY="131dp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="119dp"
+            android:layout_height="46dp"
+            android:text="Volver"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="628dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tituloEntrenador"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="628dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/botonReproducir"
+            tools:layout_editor_absoluteX="277dp"
+            tools:layout_editor_absoluteY="626dp" />
+
+        <TextView
+            android:id="@+id/workoutName"
+            android:layout_width="88dp"
+            android:layout_height="24dp"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="236dp" />
+
+        <TextView
+            android:id="@+id/totalTIme"
+            android:layout_width="88dp"
+            android:layout_height="24dp"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="307dp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="88dp"
+            android:layout_height="24dp"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="377dp" />
+
+        <TextView
+            android:id="@+id/expectedTime"
+            android:layout_width="88dp"
+            android:layout_height="24dp"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="339dp" />
+
+        <TextView
+            android:id="@+id/exerciseCompleted"
+            android:layout_width="88dp"
+            android:layout_height="24dp"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="418dp" />
+
+        <TextView
+            android:id="@+id/workoutNivel"
+            android:layout_width="88dp"
+            android:layout_height="24dp"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="271dp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="101dp"
+            android:layout_height="108dp"
+            app:srcCompat="@drawable/logo"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/filter"
+            tools:layout_editor_absoluteX="345dp"
+            tools:layout_editor_absoluteY="10dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/profile"
+            tools:layout_editor_absoluteX="345dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="343dp"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="127dp">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ seeker"
+            android:layout_width="331dp"
+            android:layout_height="27dp"
+            android:hint="hint"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="163dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
