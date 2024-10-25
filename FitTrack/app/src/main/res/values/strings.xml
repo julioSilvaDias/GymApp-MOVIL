@@ -20,4 +20,8 @@
     <string name="botonFiltrar">Filtrar</string>
     <string name="botonPerfil">Perfil</string>
     <string name="botonReproducir">Reproducir</string>
+    <string-array name="userType">
+        <item>User</item>
+        <item>Trainer</item>
+    </string-array>
 </resources>

@@ -9,165 +9,138 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="Logo"
         app:layout_constraintBottom_toTopOf="@+id/textViewTituloRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textViewTituloRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
         android:text="@string/tituloRegistro"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUsuarioRegistro"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarUsuarioRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="TextSizeCheck" />
 
-    <TextView
-        android:id="@+id/textViewUsuarioRegistro"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:text="@string/usuario"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPasswordRegistro"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarUsuarioRegistro"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro" />
-
-    <TextView
+    <EditText
         android:id="@+id/textViewIngresarUsuarioRegistro"
-        android:layout_width="240dp"
-        android:layout_height="21dp"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="@string/usuario"
+        android:inputType="text"
         android:text=""
+        android:textColorHint="#546E7A"
         app:layout_constraintBottom_toTopOf="@+id/textViewIngresarPasswordRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewUsuarioRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro" />
-
-    <TextView
-        android:id="@+id/textViewPasswordRegistro"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:text="@string/password"
-        app:layout_constraintBottom_toTopOf="@+id/textViewNombreRegistro"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarPasswordRegistro"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUsuarioRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="Autofill" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewIngresarPasswordRegistro"
-        android:layout_width="238dp"
-        android:layout_height="21dp"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="@string/password"
+        android:inputType="text"
         android:text=""
+        android:textColorHint="#546E7A"
         app:layout_constraintBottom_toTopOf="@+id/textViewIngresarNombreRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewPasswordRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarUsuarioRegistro" />
-
-    <TextView
-        android:id="@+id/textViewNombreRegistro"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:text="@string/nombre"
-        app:layout_constraintBottom_toTopOf="@+id/textViewApellidoRegistro"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarNombreRegistro"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPasswordRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarUsuarioRegistro"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="Autofill,TextFields,DuplicateSpeakableTextCheck" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewIngresarNombreRegistro"
-        android:layout_width="234dp"
-        android:layout_height="18dp"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="@string/nombre"
+        android:inputType="text"
         android:text=""
+        android:textColorHint="#546E7A"
         app:layout_constraintBottom_toTopOf="@+id/textViewIngresarApellidoRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewNombreRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarPasswordRegistro" />
-
-    <TextView
-        android:id="@+id/textViewApellidoRegistro"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:text="@string/apellido"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEmailRegistro"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarApellidoRegistro"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNombreRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarPasswordRegistro"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="Autofill,DuplicateSpeakableTextCheck" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewIngresarApellidoRegistro"
-        android:layout_width="230dp"
-        android:layout_height="22dp"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="@string/apellido"
+        android:inputType="text"
         android:text=""
+        android:textColorHint="#546E7A"
         app:layout_constraintBottom_toTopOf="@+id/textViewIngresarEmailRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewApellidoRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarNombreRegistro" />
-
-    <TextView
-        android:id="@+id/textViewEmailRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimientoRegistro"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarEmailRegistro"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApellidoRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarNombreRegistro"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="Autofill,DuplicateSpeakableTextCheck" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewIngresarEmailRegistro"
-        android:layout_width="239dp"
-        android:layout_height="24dp"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:autofillHints="text"
+        android:hint="@string/email"
+        android:inputType="text"
         android:text=""
+        android:textColorHint="#546E7A"
         app:layout_constraintBottom_toTopOf="@+id/textViewIngresarFechaNacimientoRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewEmailRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarApellidoRegistro" />
-
-    <TextView
-        android:id="@+id/textViewFechaNacimientoRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fechaNacimiento"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarFechaNacimientoRegistro"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmailRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarApellidoRegistro"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="DuplicateSpeakableTextCheck,TextFields" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewIngresarFechaNacimientoRegistro"
-        android:layout_width="193dp"
-        android:layout_height="22dp"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="@string/fechaNacimiento"
+        android:inputType="text"
         android:text=""
+        android:textColorHint="#546E7A"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewFechaNacimientoRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarEmailRegistro" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarEmailRegistro"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="Autofill" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="358dp"
         android:layout_height="50dp"
+        android:overlapAnchor="false"
         app:layout_constraintBottom_toTopOf="@+id/buttonVolver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimientoRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarFechaNacimientoRegistro"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/buttonVolver"
@@ -178,7 +151,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/buttonRegister"
@@ -189,7 +163,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonVolver"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
