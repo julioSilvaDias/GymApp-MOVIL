@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTituloRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textViewTituloRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tituloRegistro"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUsuarioRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textViewUsuarioRegistro"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:text="@string/usuario"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPasswordRegistro"
+        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarUsuarioRegistro"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro" />
+
+    <TextView
+        android:id="@+id/textViewIngresarUsuarioRegistro"
+        android:layout_width="240dp"
+        android:layout_height="21dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarPasswordRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewUsuarioRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro" />
+
+    <TextView
+        android:id="@+id/textViewPasswordRegistro"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:text="@string/password"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNombreRegistro"
+        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarPasswordRegistro"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsuarioRegistro" />
+
+    <TextView
+        android:id="@+id/textViewIngresarPasswordRegistro"
+        android:layout_width="238dp"
+        android:layout_height="21dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarNombreRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewPasswordRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarUsuarioRegistro" />
+
+    <TextView
+        android:id="@+id/textViewNombreRegistro"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:text="@string/nombre"
+        app:layout_constraintBottom_toTopOf="@+id/textViewApellidoRegistro"
+        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarNombreRegistro"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPasswordRegistro" />
+
+    <TextView
+        android:id="@+id/textViewIngresarNombreRegistro"
+        android:layout_width="234dp"
+        android:layout_height="18dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarApellidoRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewNombreRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarPasswordRegistro" />
+
+    <TextView
+        android:id="@+id/textViewApellidoRegistro"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:text="@string/apellido"
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmailRegistro"
+        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarApellidoRegistro"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombreRegistro" />
+
+    <TextView
+        android:id="@+id/textViewIngresarApellidoRegistro"
+        android:layout_width="230dp"
+        android:layout_height="22dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarEmailRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewApellidoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarNombreRegistro" />
+
+    <TextView
+        android:id="@+id/textViewEmailRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimientoRegistro"
+        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarEmailRegistro"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellidoRegistro" />
+
+    <TextView
+        android:id="@+id/textViewIngresarEmailRegistro"
+        android:layout_width="239dp"
+        android:layout_height="24dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarFechaNacimientoRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewEmailRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarApellidoRegistro" />
+
+    <TextView
+        android:id="@+id/textViewFechaNacimientoRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fechaNacimiento"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarFechaNacimientoRegistro"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmailRegistro" />
+
+    <TextView
+        android:id="@+id/textViewIngresarFechaNacimientoRegistro"
+        android:layout_width="193dp"
+        android:layout_height="22dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewFechaNacimientoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarEmailRegistro" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="358dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVolver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimientoRegistro" />
+
+    <Button
+        android:id="@+id/buttonVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botonVolver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botonRegistro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonVolver"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

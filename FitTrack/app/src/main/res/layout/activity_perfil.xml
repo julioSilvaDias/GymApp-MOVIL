@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTituloPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textViewTituloPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tituloPerfil"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUsuarioPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textViewUsuarioPerfil"
+        android:layout_width="68dp"
+        android:layout_height="25dp"
+        android:text="@string/usuario"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNombrePerfil"
+        app:layout_constraintEnd_toStartOf="@+id/textViewUsuario"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloPerfil" />
+
+    <TextView
+        android:id="@+id/textViewUsuario"
+        android:layout_width="257dp"
+        android:layout_height="25dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewNombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewUsuarioPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloPerfil" />
+
+    <TextView
+        android:id="@+id/textViewNombrePerfil"
+        android:layout_width="72dp"
+        android:layout_height="23dp"
+        android:text="@string/nombre"
+        app:layout_constraintBottom_toTopOf="@+id/textViewApellidoPerfil"
+        app:layout_constraintEnd_toStartOf="@+id/textViewNombre"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsuarioPerfil" />
+
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="258dp"
+        android:layout_height="24dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewApellido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewNombrePerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsuario" />
+
+    <TextView
+        android:id="@+id/textViewApellidoPerfil"
+        android:layout_width="67dp"
+        android:layout_height="22dp"
+        android:text="@string/apellido"
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmailPerfil"
+        app:layout_constraintEnd_toStartOf="@+id/textViewApellido"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombrePerfil" />
+
+    <TextView
+        android:id="@+id/textViewApellido"
+        android:layout_width="257dp"
+        android:layout_height="23dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewApellidoPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
+
+    <TextView
+        android:id="@+id/textViewEmailPerfil"
+        android:layout_width="68dp"
+        android:layout_height="20dp"
+        android:text="@string/email"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimientoPerfil"
+        app:layout_constraintEnd_toStartOf="@+id/textViewEmail"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellidoPerfil" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="254dp"
+        android:layout_height="27dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewEmailPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellido" />
+
+    <TextView
+        android:id="@+id/textViewFechaNacimientoPerfil"
+        android:layout_width="149dp"
+        android:layout_height="21dp"
+        android:text="@string/fechaNacimiento"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVolverPerfil"
+        app:layout_constraintEnd_toStartOf="@+id/textViewFechaNacimiento"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmailPerfil" />
+
+    <TextView
+        android:id="@+id/textViewFechaNacimiento"
+        android:layout_width="189dp"
+        android:layout_height="25dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/buttonVolverPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewFechaNacimientoPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+
+    <Button
+        android:id="@+id/buttonVolverPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botonVolver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimientoPerfil" />
+</androidx.constraintlayout.widget.ConstraintLayout>

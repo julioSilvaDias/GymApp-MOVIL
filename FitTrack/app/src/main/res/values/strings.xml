@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FitTrack</string>
+    <string name="tituloLogin">Inicio Sesion</string>
+    <string name="tituloRegistro">Registro</string>
+    <string name="tituloPerfil">Perfil</string>
+    <string name="tituloEntrenador">Entrenador</string>
+    <string name="usuario">Usuario: </string>
+    <string name="password">Contraseña: </string>
+    <string name="nombre">Nombre: </string>
+    <string name="apellido">Apellido: </string>
+    <string name="email">Email: </string>
+    <string name="fechaNacimiento">Fecha de Nacimiento: </string>
+    <string name="tituloWorkouts">Workouts</string>
+    <string name="nivelUsuario">Nivel: </string>
+    <string name="recordar">Recordar</string>
+    <string name="botonLogin">Iniciar sesión</string>
+    <string name="botonDarseAlta">Registrar</string>
+    <string name="botonRegistro">Registrarse</string>
+    <string name="botonVolver">Volver</string>
+    <string name="botonFiltrar">Filtrar</string>
+    <string name="botonPerfil">Perfil</string>
+    <string name="botonReproducir">Reproducir</string>
+</resources>
