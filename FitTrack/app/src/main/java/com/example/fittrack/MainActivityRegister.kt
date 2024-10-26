@@ -2,16 +2,16 @@ package com.example.fittrack
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivityRegister : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
+        setupSpinnerBasic()
 
         findViewById<Button>(R.id.buttonVolver).setOnClickListener {
 
@@ -26,5 +26,16 @@ class MainActivityRegister : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun setupSpinnerBasic() {
+        val spinner = findViewById<Spinner>(R.id.spinner)
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.userType,
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
     }
 }
