@@ -34,25 +34,13 @@ class MainActivityProfile : AppCompatActivity() {
         textEmail = findViewById(R.id.textViewEmail)
         textBirthdate = findViewById(R.id.textViewFechaNacimiento)
 
-        val userId = intent.getStringExtra("id")
+        val username= intent.getStringExtra("username")
 
-        if (userId != null){
-            getAllData(userId)
+        if (username != null){
+            getAllData(username)
         } else {
-            Toast.makeText(this, "ID not found", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "username not found", Toast.LENGTH_SHORT).show()
         }
-//        val userId = intent.getStringExtra("userId")
-//        if (userId != null) {
-//            getAllData(userId)  // Llamar a la función con el ID
-//        } else {
-//            Toast.makeText(this, "User ID not found", Toast.LENGTH_SHORT).show()
-//        }
-//
-//        findViewById<Button>(R.id.buttonVolverPerfil).setOnClickListener {
-//            val intent = Intent(applicationContext, MainActivityWorkouts::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
         findViewById<Button>(R.id.buttonVolverPerfil).setOnClickListener {
 
             val intent = Intent(applicationContext, MainActivityWorkouts::class.java)
@@ -61,12 +49,12 @@ class MainActivityProfile : AppCompatActivity() {
         }
     }
 
-    private fun getAllData(userId : String) {
-        db.collection("Users").document(userId).get()
-            .addOnSuccessListener { document ->
+    private fun getAllData(username : String) {
+        db.collection("Users").whereEqualTo("username", username).get()
+            .addOnSuccessListener { documents ->
 
-                if (!document.exists()) {
-                    val username = document.getString("username")?: ""
+                if (!documents.isEmpty) {
+                    val document = documents.first()
                     val userName = document.getString("name")?: ""
                     val userSurname = document.getString("surname")?: ""
                     val userEmail = document.getString("email")?: ""

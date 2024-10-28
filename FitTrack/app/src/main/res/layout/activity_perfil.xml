@@ -154,11 +154,8 @@
         android:text="@string/botonVolver"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/guideline3" />
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="811dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -193,4 +190,12 @@
         app:layout_constraintGuide_begin="779dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimiento" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tema Claro"
+        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteY="800dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

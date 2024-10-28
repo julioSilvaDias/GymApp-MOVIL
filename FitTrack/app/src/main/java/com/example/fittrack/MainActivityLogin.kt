@@ -74,6 +74,7 @@ class MainActivityLogin : AppCompatActivity() {
                             val intent =
                                 Intent(applicationContext, MainActivityWorkouts::class.java)
                             intent.putExtra("id", storedId)
+                            intent.putExtra("username", storedName)
                             startActivity(intent)
                             finish()
                             break
