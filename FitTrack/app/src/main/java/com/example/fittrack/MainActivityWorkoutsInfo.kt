@@ -39,7 +39,7 @@ class MainActivityWorkoutsInfo : AppCompatActivity() {
             val imageView = findViewById<ImageView>(R.id.imageYt)
             Glide.with(this).load(thumbnailUrl).into(imageView)
 
-            imageView.setOnClickListener{
+            imageView.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl))
                 startActivity(intent)
             }
