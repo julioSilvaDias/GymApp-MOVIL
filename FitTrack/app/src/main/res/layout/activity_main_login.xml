@@ -9,19 +9,22 @@
     tools:context=".MainActivityLogin">
 
     <androidx.gridlayout.widget.GridLayout
-        android:layout_width="340dp"
-        android:layout_height="635dp"
+        android:layout_width="346dp"
+        android:layout_height="647dp"
         android:layout_marginTop="200dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/textViewTitulo"
-            android:layout_width="333dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/adlam_display"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/tituloLogin"
@@ -35,8 +38,8 @@
             android:id="@+id/textViewUser"
             android:layout_width="250dp"
             android:layout_height="51dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="60dp"
             android:text="@string/usuario"
             android:textColor="@color/white"
             android:textSize="30sp"
@@ -48,20 +51,22 @@
             android:id="@+id/textViewIngresarUsuario"
             android:layout_width="255dp"
             android:layout_height="56dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
+            android:inputType="text"
             android:text=""
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_column="0"
-            app:layout_row="2" />
+            app:layout_row="2"
+            tools:ignore="Autofill,LabelFor" />
 
         <TextView
             android:id="@+id/textViewPassword"
             android:layout_width="250dp"
             android:layout_height="56dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="60dp"
             android:text="@string/password"
             android:textColor="@color/white"
             android:textSize="30sp"
@@ -73,20 +78,22 @@
             android:id="@+id/textViewIngresarPassword"
             android:layout_width="255dp"
             android:layout_height="56dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
+            android:inputType="text"
             android:text=""
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_column="0"
-            app:layout_row="4" />
+            app:layout_row="4"
+            tools:ignore="Autofill,LabelFor,TextFields" />
 
         <CheckBox
             android:id="@+id/checkBox_RememberMe"
             android:layout_width="105dp"
             android:layout_height="49dp"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="40dp"
             android:text="@string/recordar"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -99,8 +106,8 @@
             android:id="@+id/buttonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
             android:text="@string/botonLogin"
             app:layout_column="0"
             app:layout_row="6" />
@@ -109,8 +116,8 @@
             android:id="@+id/buttonRegister"
             android:layout_width="133dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="190dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="40dp"
             android:text="@string/botonDarseAlta"
             app:layout_column="0"
             app:layout_row="6" />

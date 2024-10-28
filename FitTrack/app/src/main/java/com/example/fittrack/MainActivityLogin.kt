@@ -1,5 +1,6 @@
 package com.example.fittrack
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -8,14 +9,11 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.firestore
-import java.security.MessageDigest
 
 class MainActivityLogin : AppCompatActivity() {
 
-    private lateinit var db:FirebaseFirestore
+    private lateinit var db: FirebaseFirestore
 
     private lateinit var userEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -27,11 +25,12 @@ class MainActivityLogin : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
+
         userEditText = findViewById(R.id.textViewIngresarUsuario)
         passwordEditText = findViewById(R.id.textViewIngresarPassword)
         rememberMeCheckBox = findViewById(R.id.checkBox_RememberMe)
 
-        loadSavedCredentials()
+        loadSavedData()
 
         findViewById<Button>(R.id.buttonRegister).setOnClickListener {
 
@@ -45,34 +44,47 @@ class MainActivityLogin : AppCompatActivity() {
             val user = userEditText.text.toString().trim()
             val password = passwordEditText.text.toString()
 
-            if (user.isNotEmpty() && password.isNotEmpty()){
+            if (user.isNotEmpty() && password.isNotEmpty()) {
                 loginUser(user, password)
             } else {
-                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
 
-    private fun loginUser(user : String, password : String){
+    @SuppressLint("SuspiciousIndentation")
+    private fun loginUser(name: String, password: String) {
 
-        db.collection("Users").document(user).get()
-            .addOnSuccessListener { document ->
-                if (document.exists()) {
-                    val storedPassword = document.getString("password")
-                    if (storedPassword == password){
-                        if (rememberMeCheckBox.isChecked){
-                            saveCredentials(user, password)
-                        } else {
-                            clearCredentials()
+        db.collection("Users").whereEqualTo("name", name).whereEqualTo("password", password).get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
+                    var foundUser = false
+                    for (document in documents) {
+                        val storedName = document.getString("name")
+                        val storedPassword = document.getString("password")
+                        val storedId = document.id
+
+                        if (storedPassword == password && storedName == name) {
+                            foundUser = true
+                            if (rememberMeCheckBox.isChecked) {
+                                saveData(name, password)
+                            } else {
+                                deleteSavedData()
+                            }
+                            val intent =
+                                Intent(applicationContext, MainActivityWorkouts::class.java)
+                            intent.putExtra("id", storedId)
+                            startActivity(intent)
+                            finish()
+                            break
                         }
-                        val intent = Intent(applicationContext, MainActivityWorkouts::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show()
                     }
-                } else {
-                    Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
+                    if (!foundUser) {
+                        Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Successful login", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             .addOnFailureListener {
@@ -80,7 +92,7 @@ class MainActivityLogin : AppCompatActivity() {
             }
     }
 
-    private fun saveCredentials(user:String, password: String){
+    private fun saveData(user: String, password: String) {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("username", user)
@@ -89,7 +101,7 @@ class MainActivityLogin : AppCompatActivity() {
         editor.apply()
     }
 
-    private fun loadSavedCredentials(){
+    private fun loadSavedData() {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("username", "")
         val password = sharedPreferences.getString("password", "")
@@ -100,7 +112,7 @@ class MainActivityLogin : AppCompatActivity() {
         rememberMeCheckBox.isChecked = rememberMe
     }
 
-    private fun clearCredentials(){
+    private fun deleteSavedData() {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.remove("username")
