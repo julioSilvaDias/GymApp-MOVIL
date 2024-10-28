@@ -18,7 +18,8 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="TextSizeCheck">
 
         <TextView
             android:id="@+id/textViewTitulo"
@@ -40,12 +41,13 @@
             android:layout_height="51dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="60dp"
+            android:fontFamily="@font/adlam_display"
             android:text="@string/usuario"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:textStyle="bold"
             app:layout_column="0"
-            app:layout_row="1" />
+            app:layout_row="1"
+            tools:ignore="TextSizeCheck" />
 
         <EditText
             android:id="@+id/textViewIngresarUsuario"
@@ -53,13 +55,14 @@
             android:layout_height="56dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif"
             android:inputType="text"
             android:text=""
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_column="0"
             app:layout_row="2"
-            tools:ignore="Autofill,LabelFor" />
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textViewPassword"
@@ -67,12 +70,13 @@
             android:layout_height="56dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="60dp"
+            android:fontFamily="@font/adlam_display"
             android:text="@string/password"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:textStyle="bold"
             app:layout_column="0"
-            app:layout_row="3" />
+            app:layout_row="3"
+            tools:ignore="TextSizeCheck" />
 
         <EditText
             android:id="@+id/textViewIngresarPassword"
@@ -80,13 +84,14 @@
             android:layout_height="56dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif"
             android:inputType="text"
             android:text=""
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_column="0"
             app:layout_row="4"
-            tools:ignore="Autofill,LabelFor,TextFields" />
+            tools:ignore="Autofill,LabelFor,TextFields,SpeakableTextPresentCheck" />
 
         <CheckBox
             android:id="@+id/checkBox_RememberMe"
@@ -94,6 +99,7 @@
             android:layout_height="49dp"
             android:layout_marginStart="110dp"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/adlam_display"
             android:text="@string/recordar"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -108,7 +114,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="40dp"
+            android:backgroundTint="#716969"
+            android:fontFamily="sans-serif"
             android:text="@string/botonLogin"
+            android:textStyle="bold"
             app:layout_column="0"
             app:layout_row="6" />
 
@@ -118,10 +127,11 @@
             android:layout_height="48dp"
             android:layout_marginStart="190dp"
             android:layout_marginTop="40dp"
+            android:backgroundTint="#716969"
+            android:fontFamily="sans-serif"
             android:text="@string/botonDarseAlta"
+            android:textStyle="bold"
             app:layout_column="0"
             app:layout_row="6" />
     </androidx.gridlayout.widget.GridLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

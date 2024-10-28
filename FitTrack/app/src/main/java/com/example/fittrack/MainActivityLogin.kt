@@ -54,37 +54,35 @@ class MainActivityLogin : AppCompatActivity() {
     }
 
     @SuppressLint("SuspiciousIndentation")
-    private fun loginUser(name: String, password: String) {
+    private fun loginUser(username: String, password: String) {
 
-        db.collection("Users").whereEqualTo("name", name).whereEqualTo("password", password).get()
+        db.collection("Users").whereEqualTo("username", username).get()
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
-                    var foundUser = false
                     for (document in documents) {
-                        val storedName = document.getString("name")
+                        val storedName = document.getString("username")
                         val storedPassword = document.getString("password")
                         val storedId = document.id
 
-                        if (storedPassword == password && storedName == name) {
-                            foundUser = true
+                        if (storedPassword == password && storedName == username) {
                             if (rememberMeCheckBox.isChecked) {
-                                saveData(name, password)
+                                saveData(username, password)
                             } else {
                                 deleteSavedData()
                             }
+                            Toast.makeText(this, "Successful login", Toast.LENGTH_SHORT).show()
                             val intent =
                                 Intent(applicationContext, MainActivityWorkouts::class.java)
                             intent.putExtra("id", storedId)
                             startActivity(intent)
                             finish()
                             break
+                        } else {
+                            Toast.makeText(this, "Password Incorrect", Toast.LENGTH_SHORT).show()
                         }
                     }
-                    if (!foundUser) {
-                        Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this, "Successful login", Toast.LENGTH_SHORT).show()
-                    }
+                } else {
+                    Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener {

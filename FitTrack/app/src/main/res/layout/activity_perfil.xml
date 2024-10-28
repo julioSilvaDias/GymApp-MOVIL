@@ -3,145 +3,194 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTituloPerfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+    android:layout_height="match_parent"
+    android:background="@drawable/fondoprofile">
 
     <TextView
         android:id="@+id/textViewTituloPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
         android:text="@string/tituloPerfil"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewUsuarioPerfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/textViewUsuarioPerfil"
-        android:layout_width="68dp"
-        android:layout_height="25dp"
-        android:text="@string/usuario"
-        app:layout_constraintBottom_toTopOf="@+id/textViewNombrePerfil"
-        app:layout_constraintEnd_toStartOf="@+id/textViewUsuario"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloPerfil" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
     <TextView
         android:id="@+id/textViewUsuario"
-        android:layout_width="257dp"
-        android:layout_height="25dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textViewNombre"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNombrePerfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewUsuarioPerfil"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsuarioPerfil" />
+
+    <TextView
+        android:id="@+id/textViewUsuarioPerfil"
+        android:layout_width="250dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="@string/usuario"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloPerfil" />
 
     <TextView
         android:id="@+id/textViewNombrePerfil"
-        android:layout_width="72dp"
-        android:layout_height="23dp"
+        android:layout_width="250dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/adlam_display"
         android:text="@string/nombre"
-        app:layout_constraintBottom_toTopOf="@+id/textViewApellidoPerfil"
-        app:layout_constraintEnd_toStartOf="@+id/textViewNombre"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUsuarioPerfil" />
-
-    <TextView
-        android:id="@+id/textViewNombre"
-        android:layout_width="258dp"
-        android:layout_height="24dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textViewApellido"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNombre"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewNombrePerfil"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/textViewUsuario" />
 
     <TextView
-        android:id="@+id/textViewApellidoPerfil"
-        android:layout_width="67dp"
-        android:layout_height="22dp"
-        android:text="@string/apellido"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEmailPerfil"
-        app:layout_constraintEnd_toStartOf="@+id/textViewApellido"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNombrePerfil" />
-
-    <TextView
-        android:id="@+id/textViewApellido"
-        android:layout_width="257dp"
-        android:layout_height="23dp"
+        android:id="@+id/textViewFechaNacimiento"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewApellidoPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
-
-    <TextView
-        android:id="@+id/textViewEmailPerfil"
-        android:layout_width="68dp"
-        android:layout_height="20dp"
-        android:text="@string/email"
-        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimientoPerfil"
-        app:layout_constraintEnd_toStartOf="@+id/textViewEmail"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApellidoPerfil" />
-
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="254dp"
-        android:layout_height="27dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimiento"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewEmailPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApellido" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimientoPerfil" />
 
     <TextView
         android:id="@+id/textViewFechaNacimientoPerfil"
-        android:layout_width="149dp"
-        android:layout_height="21dp"
+        android:layout_width="270dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/adlam_display"
         android:text="@string/fechaNacimiento"
-        app:layout_constraintBottom_toTopOf="@+id/buttonVolverPerfil"
-        app:layout_constraintEnd_toStartOf="@+id/textViewFechaNacimiento"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimientoPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/textViewEmailPerfil" />
 
     <TextView
-        android:id="@+id/textViewFechaNacimiento"
-        android:layout_width="189dp"
-        android:layout_height="25dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/buttonVolverPerfil"
+        android:id="@+id/textViewEmailPerfil"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="@string/email"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewFechaNacimientoPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellido" />
+
+    <TextView
+        android:id="@+id/textViewApellido"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmailPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellidoPerfil" />
+
+    <TextView
+        android:id="@+id/textViewApellidoPerfil"
+        android:layout_width="250dp"
+        android:layout_height="36dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="@string/apellido"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewApellido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
+
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewApellidoPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombrePerfil" />
 
     <Button
         android:id="@+id/buttonVolverPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#716969"
+        android:fontFamily="sans-serif"
         android:text="@string/botonVolver"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/guideline3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTituloPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="728dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimientoPerfil" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonVolverPerfil"
+        app:layout_constraintGuide_begin="97dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVolverPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="779dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimiento" />
 </androidx.constraintlayout.widget.ConstraintLayout>
