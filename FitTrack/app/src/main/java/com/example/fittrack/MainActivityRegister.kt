@@ -30,13 +30,26 @@ class MainActivityRegister : AppCompatActivity() {
 
         findViewById<Button>(R.id.buttonRegister).setOnClickListener {
 
+            val nombre = findViewById<EditText>(R.id.textViewIngresarNombreRegistro).text.toString()
+            val apellido = findViewById<EditText>(R.id.textViewIngresarApellidoRegistro).text.toString()
+            val email = findViewById<EditText>(R.id.textViewIngresarEmailRegistro).text.toString()
+            val fechaNacimiento = findViewById<EditText>(R.id.textViewIngresarFechaNacimientoRegistro).text.toString()
+            val usuario = findViewById<EditText>(R.id.textViewIngresarUsuarioRegistro).text.toString()
+            val password = findViewById<EditText>(R.id.textViewIngresarPasswordRegistro).text.toString()
+
+            if (nombre.isEmpty() || apellido.isEmpty() || email.isEmpty() ||
+                fechaNacimiento.isEmpty() || usuario.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val user = hashMapOf(
-                "name" to findViewById<EditText>(R.id.textViewIngresarNombreRegistro).text.toString(),
-                "surname" to findViewById<EditText>(R.id.textViewIngresarApellidoRegistro).text.toString(),
-                "email" to findViewById<EditText>(R.id.textViewIngresarEmailRegistro).text.toString(),
-                "birthdate" to findViewById<EditText>(R.id.textViewIngresarFechaNacimientoRegistro).text.toString(),
-                "username" to findViewById<EditText>(R.id.textViewIngresarUsuarioRegistro).text.toString(),
-                "password" to findViewById<EditText>(R.id.textViewIngresarPasswordRegistro).text.toString(),
+                "name" to nombre,
+                "surname" to apellido,
+                "email" to email,
+                "birthdate" to fechaNacimiento,
+                "username" to usuario,
+                "password" to password,
                 "userType" to findViewById<Spinner>(R.id.spinner).selectedItem.toString()
             )
             db.collection("Users").document("004")
