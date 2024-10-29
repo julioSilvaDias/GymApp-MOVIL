@@ -9,6 +9,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fittrack.utils.ThemeUtils
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivityLogin : AppCompatActivity() {
@@ -22,6 +23,8 @@ class MainActivityLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_login)
+
+        ThemeUtils.applyBackground(this, "login")
 
         db = FirebaseFirestore.getInstance()
 

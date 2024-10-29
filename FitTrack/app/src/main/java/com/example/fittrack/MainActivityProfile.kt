@@ -1,14 +1,19 @@
 package com.example.fittrack
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.StrictMode
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.fittrack.utils.ThemeUtils
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
@@ -21,6 +26,21 @@ class MainActivityProfile : AppCompatActivity() {
     private lateinit var textSurname:TextView
     private lateinit var textEmail:TextView
     private lateinit var textBirthdate:TextView
+    private lateinit var switchMode: Switch
+    private lateinit var rootLayout : ConstraintLayout
+
+    private val backgrounds = arrayOf(
+        R.drawable.fondologin,
+        R.drawable.loginlight,
+        R.drawable.fondoregister,
+        R.drawable.registerlight,
+        R.drawable.fondoworkouts,
+        R.drawable.workoutslight,
+        R.drawable.fondoprofile,
+        R.drawable.profilelight
+    )
+
+    private var currentBackgroundIndex = 6
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +48,28 @@ class MainActivityProfile : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
+        val sharedPreferences = getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
+        currentBackgroundIndex = sharedPreferences.getInt("currentBackgroundIndex", 0)
+
         textUser = findViewById(R.id.textViewUsuario)
         textName = findViewById(R.id.textViewNombre)
         textSurname = findViewById(R.id.textViewApellido)
         textEmail = findViewById(R.id.textViewEmail)
         textBirthdate = findViewById(R.id.textViewFechaNacimiento)
+        switchMode = findViewById(R.id.switch1)
+        rootLayout = findViewById(R.id.rootlayout)
 
+        ThemeUtils.applyBackground(this, "profile")
+
+        switchMode.isChecked = currentBackgroundIndex ==1
+
+        switchMode.setOnCheckedChangeListener{_, isChecked ->
+
+            currentBackgroundIndex = if (isChecked) 1 else 0
+            updateBackground()
+
+            sharedPreferences.edit().putInt("currentBackgroundIndex", currentBackgroundIndex).apply()
+        }
         val username= intent.getStringExtra("username")
 
         if (username != null){
@@ -73,5 +109,9 @@ class MainActivityProfile : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Toast.makeText(this, "Error General", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun updateBackground(){
+        rootLayout.setBackgroundResource(backgrounds[currentBackgroundIndex])
     }
 }
