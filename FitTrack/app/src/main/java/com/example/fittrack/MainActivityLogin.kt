@@ -9,7 +9,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fittrack.utils.ThemeUtils
+import com.example.fittrack.util.ThemeUtils
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivityLogin : AppCompatActivity() {

@@ -3,19 +3,14 @@ package com.example.fittrack
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.StrictMode
 import android.widget.Button
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.fittrack.utils.ThemeUtils
+import com.example.fittrack.util.ThemeUtils
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 
 class MainActivityProfile : AppCompatActivity() {
 

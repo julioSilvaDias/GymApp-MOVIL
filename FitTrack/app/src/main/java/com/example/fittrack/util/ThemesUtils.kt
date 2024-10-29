@@ -1,4 +1,4 @@
-package com.example.fittrack.utils
+package com.example.fittrack.util
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.fittrack.R
 
 object ThemeUtils {
+
     private val backgrounds = mapOf(
         "login" to arrayOf(R.drawable.fondologin, R.drawable.loginlight),
         "register" to arrayOf(R.drawable.fondoregister, R.drawable.registerlight),
@@ -17,26 +18,15 @@ object ThemeUtils {
         val sharedPreferences = activity.getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
         val backgroundIndex = sharedPreferences.getInt("currentBackgroundIndex", 0)
         val backgroundsArray = backgrounds[activityName]
-        if (backgroundsArray != null) {
-            activity.findViewById<ConstraintLayout>(R.id.rootlayout)?.setBackgroundResource(backgroundsArray[backgroundIndex])
+        backgroundsArray?.let {
+            activity.findViewById<ConstraintLayout>(R.id.rootlayout)?.setBackgroundResource(it[backgroundIndex])
         }
     }
-}
 
-//object ThemeUtils {
-//
-//    fun applyBackground(activity: Activity, activityType: String) {
-//        val sharedPreferences = activity.getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
-//        val isLightMode = sharedPreferences.getInt("currentBackgroundIndex", 0) == 1
-//
-//        val backgroundResource = when (activityType) {
-//            "login" -> if (isLightMode) R.drawable.loginlight else R.drawable.fondologin
-//            "register" -> if (isLightMode) R.drawable.registerlight else R.drawable.fondoregister
-//            "workouts" -> if (isLightMode) R.drawable.workoutslight else R.drawable.fondoworkouts
-//            "profile" -> if (isLightMode) R.drawable.profilelight else R.drawable.fondoprofile
-//            else -> R.drawable.default_background // Fallback por si acaso
-//        }
-//
-//        val rootLayout = activity.findViewById<ConstraintLayout>(R.id.rootlayout)
-//        rootLayout.setBackgroundResource(backgroundResource)
-//    }
+    fun toggleTheme(activity: AppCompatActivity, activityName: String, isLightMode: Boolean) {
+        val backgroundIndex = if (isLightMode) 1 else 0
+        val sharedPreferences = activity.getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("currentBackgroundIndex", backgroundIndex).apply()
+        applyBackground(activity, activityName) // Aplica el nuevo fondo
+    }
+}
