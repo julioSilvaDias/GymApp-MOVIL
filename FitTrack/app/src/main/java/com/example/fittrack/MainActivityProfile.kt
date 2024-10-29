@@ -1,5 +1,6 @@
 package com.example.fittrack
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -16,26 +17,15 @@ class MainActivityProfile : AppCompatActivity() {
 
     private lateinit var db: FirebaseFirestore
 
-    private lateinit var textUser:TextView
-    private lateinit var textName:TextView
-    private lateinit var textSurname:TextView
-    private lateinit var textEmail:TextView
-    private lateinit var textBirthdate:TextView
+    private lateinit var textUser: TextView
+    private lateinit var textName: TextView
+    private lateinit var textSurname: TextView
+    private lateinit var textEmail: TextView
+    private lateinit var textBirthdate: TextView
+    private lateinit var buttonBack : Button
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private lateinit var switchMode: Switch
-    private lateinit var rootLayout : ConstraintLayout
-
-    private val backgrounds = arrayOf(
-        R.drawable.fondologin,
-        R.drawable.loginlight,
-        R.drawable.fondoregister,
-        R.drawable.registerlight,
-        R.drawable.fondoworkouts,
-        R.drawable.workoutslight,
-        R.drawable.fondoprofile,
-        R.drawable.profilelight
-    )
-
-    private var currentBackgroundIndex = 6
+    private lateinit var rootLayout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,53 +33,54 @@ class MainActivityProfile : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        val sharedPreferences = getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
-        currentBackgroundIndex = sharedPreferences.getInt("currentBackgroundIndex", 0)
-
         textUser = findViewById(R.id.textViewUsuario)
         textName = findViewById(R.id.textViewNombre)
         textSurname = findViewById(R.id.textViewApellido)
         textEmail = findViewById(R.id.textViewEmail)
         textBirthdate = findViewById(R.id.textViewFechaNacimiento)
+        buttonBack = findViewById(R.id.buttonVolverPerfil)
         switchMode = findViewById(R.id.switch1)
         rootLayout = findViewById(R.id.rootlayout)
 
         ThemeUtils.applyBackground(this, "profile")
 
-        switchMode.isChecked = currentBackgroundIndex ==1
 
-        switchMode.setOnCheckedChangeListener{_, isChecked ->
 
-            currentBackgroundIndex = if (isChecked) 1 else 0
-            updateBackground()
+        val isLightMode = getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
+            .getInt("currentBackgroundIndex", 0) == 1
+        switchMode.isChecked = isLightMode
 
-            sharedPreferences.edit().putInt("currentBackgroundIndex", currentBackgroundIndex).apply()
+        switchMode.setOnCheckedChangeListener { _, isChecked ->
+
+            ThemeUtils.toggleTheme(this, "profile", isChecked)
+            ThemeUtils.applyButtonTheme(this, buttonBack)
+            ThemeUtils.applyTextTheme(this)
         }
-        val username= intent.getStringExtra("username")
 
-        if (username != null){
+        val username = intent.getStringExtra("username")
+
+        if (username != null) {
             getAllData(username)
         } else {
             Toast.makeText(this, "username not found", Toast.LENGTH_SHORT).show()
         }
         findViewById<Button>(R.id.buttonVolverPerfil).setOnClickListener {
-
             val intent = Intent(applicationContext, MainActivityWorkouts::class.java)
             startActivity(intent)
             finish()
         }
     }
 
-    private fun getAllData(username : String) {
+    private fun getAllData(username: String) {
         db.collection("Users").whereEqualTo("username", username).get()
             .addOnSuccessListener { documents ->
 
                 if (!documents.isEmpty) {
                     val document = documents.first()
-                    val userName = document.getString("name")?: ""
-                    val userSurname = document.getString("surname")?: ""
-                    val userEmail = document.getString("email")?: ""
-                    val userBirthdate = document.getString("birthdate")?: ""
+                    val userName = document.getString("name") ?: ""
+                    val userSurname = document.getString("surname") ?: ""
+                    val userEmail = document.getString("email") ?: ""
+                    val userBirthdate = document.getString("birthdate") ?: ""
 
                     textUser.text = username
                     textName.text = userName
@@ -101,12 +92,8 @@ class MainActivityProfile : AppCompatActivity() {
                 }
 
             }
-            .addOnFailureListener { exception ->
+            .addOnFailureListener {
                 Toast.makeText(this, "Error General", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    private fun updateBackground(){
-        rootLayout.setBackgroundResource(backgrounds[currentBackgroundIndex])
     }
 }

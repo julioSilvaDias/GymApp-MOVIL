@@ -25,6 +25,7 @@ class MainActivityLogin : AppCompatActivity() {
         setContentView(R.layout.activity_main_login)
 
         ThemeUtils.applyBackground(this, "login")
+        ThemeUtils.applyTextTheme(this)
 
         db = FirebaseFirestore.getInstance()
 

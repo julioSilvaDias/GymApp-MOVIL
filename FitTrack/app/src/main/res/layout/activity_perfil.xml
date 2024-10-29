@@ -44,7 +44,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloPerfil"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textViewNombrePerfil"
@@ -57,7 +58,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewNombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsuario"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textViewFechaNacimiento"
@@ -82,7 +84,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewFechaNacimiento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textViewEmail"
@@ -107,7 +110,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApellido" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellido"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textViewApellido"
@@ -132,7 +136,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewApellido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/textViewNombre"
@@ -150,16 +155,18 @@
         android:id="@+id/buttonVolverPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#716969"
+        android:backgroundTint="@color/design_default_color_background"
         android:fontFamily="sans-serif"
         android:text="@string/botonVolver"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/switch1"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimiento" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimiento"
+        tools:ignore="VisualLintBounds" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -168,7 +175,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/textViewTituloPerfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_end="728dp"
+        app:layout_constraintGuide_end="703dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,15 +198,17 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/buttonVolverPerfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="779dp"
+        app:layout_constraintGuide_begin="765dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimiento" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewFechaNacimiento"
+        tools:ignore="VisualLintBounds" />
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
+        android:minHeight="48dp"
         android:text="Tema Claro"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -207,14 +216,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonVolverPerfil"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        tools:ignore="HardcodedText,UseSwitchCompatOrMaterialXml,VisualLintBounds" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="123dp"
-        android:layout_height="24dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonVolverPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/switch1"
+        tools:ignore="TextSizeCheck,VisualLintBounds" />
 </androidx.constraintlayout.widget.ConstraintLayout>
