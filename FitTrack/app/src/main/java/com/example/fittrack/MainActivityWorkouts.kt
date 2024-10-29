@@ -3,8 +3,10 @@ package com.example.fittrack
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -17,12 +19,25 @@ class MainActivityWorkouts : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workouts)
 
+        val userId = intent.getStringExtra("id")
+        val username = intent.getStringExtra("username")
+        var isUser = getUserType(username)
+
+        val button = findViewById<Button>(R.id.button3)
+
+       if(isUser) {
+           button.visibility = View.VISIBLE
+       }else{
+           button.visibility = View.INVISIBLE
+       }
+
+        getHistoric(username)
+
         val listView = findViewById<ListView>(R.id.historicList)
         historicList = ArrayList()
         adapter = AdapterList(this, historicList)
         listView.adapter = adapter
 
-        getHistoric()
 
         listView.setOnItemClickListener { _, _, position, _ ->
             val selectedHistoric = historicList[position]
@@ -39,8 +54,8 @@ class MainActivityWorkouts : AppCompatActivity() {
 
         findViewById<Button>(R.id.button).setOnClickListener {
             val intent = Intent(applicationContext, MainActivityProfile::class.java)
+            intent.putExtra("username", username)
             startActivity(intent)
-            finish()
         }
 
         findViewById<Button>(R.id.button5).setOnClickListener {
@@ -49,10 +64,16 @@ class MainActivityWorkouts : AppCompatActivity() {
             finish()
         }
 
+        findViewById<Button>(R.id.button3).setOnClickListener {
+            val intent = Intent()
+            intent.putExtra("username", username)
+            intent.putExtra("userid", userId)
+        }
+
 
     }
 
-    private fun getHistoric() {
+    private fun getHistoric(id: String?) {
         val db = FirebaseFirestore.getInstance()
         val userId = "001"
         val userRef = db.collection("Users").document(userId)
@@ -67,6 +88,8 @@ class MainActivityWorkouts : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
+                Toast.makeText(this, "Database error. \n No history found", Toast.LENGTH_SHORT)
+                    .show()
 
             }
     }
@@ -91,5 +114,29 @@ class MainActivityWorkouts : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 callback("")
             }
+    }
+
+    private fun getUserType(username: String?): Boolean {
+        var ret = false
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Users")
+            .whereEqualTo("username", "julio")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    for (document in querySnapshot.documents) {
+                        val type = document.getString("userType")
+                        if (type.equals("trainer")) {
+                            ret = true
+                            break;
+                        } else if(type.equals("user")){
+                            ret = false
+                            break
+                        }
+                    }
+                }
+
+            }
+        return ret
     }
 }
