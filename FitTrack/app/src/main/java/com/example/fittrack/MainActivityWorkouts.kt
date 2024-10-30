@@ -11,6 +11,7 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.example.fittrack.util.ThemeUtils
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -24,8 +25,11 @@ class MainActivityWorkouts : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workouts)
 
-        val userId = intent.getStringExtra("id")
-        val username = intent.getStringExtra("username")
+       // ThemeUtils.applyBackground(this, "login")
+       // ThemeUtils.applyTextTheme(this)
+
+        val userId = intent.getStringExtra("id").toString()
+        val username = intent.getStringExtra("username").toString()
         val textInput = findViewById<TextInputEditText>(R.id.seeker)
         val button = findViewById<Button>(R.id.button3)
 
@@ -43,7 +47,7 @@ class MainActivityWorkouts : AppCompatActivity() {
         adapter = AdapterList(this, filteredList)
         listView.adapter = adapter
 
-        getHistoric(username)
+        getHistoric(userId)
 
         textInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -105,10 +109,10 @@ class MainActivityWorkouts : AppCompatActivity() {
         adapter.notifyDataSetChanged()
     }
 
-    private fun getHistoric(id: String?) {
+    private fun getHistoric(id: String) {
         val db = FirebaseFirestore.getInstance()
-        val userId = "001"
-        val userRef = db.collection("Users").document(userId)
+
+        val userRef = db.collection("Users").document(id)
 
         userRef.collection("Historic")
             .get()
@@ -149,10 +153,10 @@ class MainActivityWorkouts : AppCompatActivity() {
             }
     }
 
-    private fun getUserType(username: String?, callback: (Boolean) -> Unit) {
+    private fun getUserType(username: String, callback: (Boolean) -> Unit) {
         val db = FirebaseFirestore.getInstance()
         db.collection("Users")
-            .whereEqualTo("username", "maria")
+            .whereEqualTo("username", username)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 var isTrainer = false

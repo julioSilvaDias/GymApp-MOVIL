@@ -8,11 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.fittrack.util.ThemeUtils
 
 class MainActivityWorkoutsInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_workouts_info)
+
+        ThemeUtils.applyBackground(this, "login")
+        //ThemeUtils.applyTextTheme(this)
 
         findViewById<Button>(R.id.button5).setOnClickListener {
             finish()
