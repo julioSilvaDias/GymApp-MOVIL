@@ -2,18 +2,23 @@ package com.example.fittrack
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivityWorkouts : AppCompatActivity() {
 
     private lateinit var adapter: AdapterList
     private lateinit var historicList: ArrayList<Historic>
+    private lateinit var filteredList: ArrayList<Historic>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,23 +26,38 @@ class MainActivityWorkouts : AppCompatActivity() {
 
         val userId = intent.getStringExtra("id")
         val username = intent.getStringExtra("username")
-        var isUser = getUserType(username)
-
+        val textInput = findViewById<TextInputEditText>(R.id.seeker)
         val button = findViewById<Button>(R.id.button3)
 
-       if(isUser) {
-           button.visibility = View.VISIBLE
-       }else{
-           button.visibility = View.INVISIBLE
-       }
-
-        getHistoric(username)
+        getUserType(username) { isUser ->
+            if (isUser) {
+                button.visibility = View.VISIBLE
+            } else {
+                button.visibility = View.INVISIBLE
+            }
+        }
 
         val listView = findViewById<ListView>(R.id.historicList)
         historicList = ArrayList()
-        adapter = AdapterList(this, historicList)
+        filteredList = ArrayList()
+        adapter = AdapterList(this, filteredList)
         listView.adapter = adapter
 
+        getHistoric(username)
+
+        textInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(i: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(i: Editable?) {
+                filterList(i.toString())
+            }
+        })
 
         listView.setOnItemClickListener { _, _, position, _ ->
             val selectedHistoric = historicList[position]
@@ -73,6 +93,18 @@ class MainActivityWorkouts : AppCompatActivity() {
 
     }
 
+    private fun filterList(level: String) {
+        filteredList.clear()
+
+        if (level.isEmpty()) {
+            filteredList.addAll(historicList)
+        } else {
+            filteredList.addAll(historicList.filter { it.level == level })
+        }
+
+        adapter.notifyDataSetChanged()
+    }
+
     private fun getHistoric(id: String?) {
         val db = FirebaseFirestore.getInstance()
         val userId = "001"
@@ -85,6 +117,7 @@ class MainActivityWorkouts : AppCompatActivity() {
                     val historic = document.toObject(Historic::class.java)
                     historicList.add(historic)
                 }
+                filteredList.addAll(historicList)
                 adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
@@ -116,27 +149,26 @@ class MainActivityWorkouts : AppCompatActivity() {
             }
     }
 
-    private fun getUserType(username: String?): Boolean {
-        var ret = false
+    private fun getUserType(username: String?, callback: (Boolean) -> Unit) {
         val db = FirebaseFirestore.getInstance()
         db.collection("Users")
-            .whereEqualTo("username", "julio")
+            .whereEqualTo("username", "maria")
             .get()
             .addOnSuccessListener { querySnapshot ->
+                var isTrainer = false
                 if (!querySnapshot.isEmpty) {
                     for (document in querySnapshot.documents) {
                         val type = document.getString("userType")
-                        if (type.equals("trainer")) {
-                            ret = true
-                            break;
-                        } else if(type.equals("user")){
-                            ret = false
+                        if (type.equals("Trainer")) {
+                            isTrainer = true
                             break
                         }
                     }
                 }
-
+                callback(isTrainer)
             }
-        return ret
+            .addOnFailureListener {
+                callback(false)
+            }
     }
 }
