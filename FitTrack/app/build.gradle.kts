@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.firestore)
+    implementation(libs.androidx.gridlayout)
     implementation("com.github.bumptech.glide:glide:4.15.0")
 
     testImplementation(libs.junit)

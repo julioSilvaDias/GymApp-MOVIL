@@ -2,108 +2,136 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/rootlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondologin"
     tools:context=".MainActivityLogin">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTitulo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tituloLogin"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
-        android:id="@+id/textViewUser"
-        android:layout_width="76dp"
-        android:layout_height="19dp"
-        android:text="@string/usuario"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPassword"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarUsuario"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
-
-    <TextView
-        android:id="@+id/textViewPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/password"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox_RememberMe"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIngresarPassword"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUser" />
-
-    <CheckBox
-        android:id="@+id/checkBox_RememberMe"
-        android:layout_width="105dp"
-        android:layout_height="49dp"
-        android:text="@string/recordar"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPassword" />
-
-    <TextView
-        android:id="@+id/textViewIngresarUsuario"
-        android:layout_width="258dp"
-        android:layout_height="24dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewUser"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
-
-    <TextView
-        android:id="@+id/textViewIngresarPassword"
-        android:layout_width="257dp"
-        android:layout_height="24dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/checkBox_RememberMe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewPassword"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarUsuario" />
-
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/botonLogin"
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="346dp"
+        android:layout_height="647dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_RememberMe" />
-
-    <Button
-        android:id="@+id/buttonRegister"
-        android:layout_width="133dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="65dp"
-        android:text="@string/botonDarseAlta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonLogin"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_RememberMe" />
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="TextSizeCheck">
 
+        <TextView
+            android:id="@+id/textViewTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/adlam_display"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/tituloLogin"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_column="0"
+            app:layout_row="0" />
 
+        <TextView
+            android:id="@+id/textViewUser"
+            android:layout_width="250dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/adlam_display"
+            android:text="@string/usuario"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_column="0"
+            app:layout_row="1"
+            tools:ignore="TextSizeCheck" />
+
+        <EditText
+            android:id="@+id/textViewIngresarUsuario"
+            android:layout_width="255dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_column="0"
+            app:layout_row="2"
+            tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textViewPassword"
+            android:layout_width="250dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/adlam_display"
+            android:text="@string/password"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_column="0"
+            app:layout_row="3"
+            tools:ignore="TextSizeCheck" />
+
+        <EditText
+            android:id="@+id/textViewIngresarPassword"
+            android:layout_width="255dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_column="0"
+            app:layout_row="4"
+            tools:ignore="Autofill,LabelFor,TextFields,SpeakableTextPresentCheck" />
+
+        <CheckBox
+            android:id="@+id/checkBox_RememberMe"
+            android:layout_width="105dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/adlam_display"
+            android:text="@string/recordar"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_column="0"
+            app:layout_row="5" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#716969"
+            android:fontFamily="sans-serif"
+            android:text="@string/botonLogin"
+            android:textStyle="bold"
+            app:layout_column="0"
+            app:layout_row="6" />
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="133dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#716969"
+            android:fontFamily="sans-serif"
+            android:text="@string/botonDarseAlta"
+            android:textStyle="bold"
+            app:layout_column="0"
+            app:layout_row="6" />
+    </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
