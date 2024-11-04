@@ -65,8 +65,6 @@ class MainActivityProfile : AppCompatActivity() {
             Toast.makeText(this, "username not found", Toast.LENGTH_SHORT).show()
         }
         findViewById<Button>(R.id.buttonVolverPerfil).setOnClickListener {
-            val intent = Intent(applicationContext, MainActivityWorkouts::class.java)
-            startActivity(intent)
             finish()
         }
     }
