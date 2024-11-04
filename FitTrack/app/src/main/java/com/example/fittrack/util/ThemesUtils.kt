@@ -1,6 +1,7 @@
 package com.example.fittrack.util
 
 import android.content.Context
+import android.content.res.Configuration
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -8,6 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.fittrack.R
+import com.google.rpc.Code
+import java.util.Locale
 
 object ThemeUtils {
 
@@ -66,4 +69,25 @@ object ThemeUtils {
             }
         }
     }
+
+    //Cambio de idioma
+
+    fun setLocale (context: Context, languageCode: String){
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val configuration = Configuration()
+        configuration.setLocale(locale)
+
+        context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
+
+        val editor = context.getSharedPreferences("appPreferences", Context.MODE_PRIVATE).edit()
+        editor.putString("LANGUAGE_KEY", languageCode)
+        editor.apply()
+    }
+
+    fun getLocale(context: Context): String? {
+        val prefs = context.getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
+        return prefs.getString("LANGUAGE_KEY", "en")
+    }
+
 }
