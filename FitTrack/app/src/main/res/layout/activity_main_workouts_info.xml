@@ -21,7 +21,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tituloWorkouts"
+            android:text="@string/tittleWorkouts"
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/imageYt"
             app:layout_constraintEnd_toEndOf="parent"

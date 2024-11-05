@@ -16,7 +16,7 @@ class MainActivityWorkoutsInfo : AppCompatActivity() {
         setContentView(R.layout.activity_main_workouts_info)
 
         ThemeUtils.applyBackground(this, "login")
-        //ThemeUtils.applyTextTheme(this)
+        ThemeUtils.applyTextTheme(this)
 
         findViewById<Button>(R.id.button5).setOnClickListener {
             finish()
