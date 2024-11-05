@@ -28,7 +28,7 @@ class MainActivityWorkouts : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workouts)
 
-        ThemeUtils.applyBackground(this, "login")
+        ThemeUtils.applyBackground(this, "workouts")
         ThemeUtils.applyTextTheme(this)
 
         val userId = intent.getStringExtra("id").toString()

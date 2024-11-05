@@ -5,14 +5,15 @@
     android:id="@+id/rootlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondoworkouts"
-    >
+    android:background="@drawable/fondoworkouts">
 
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/seeker"
         android:layout_width="329dp"
         android:layout_height="46dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
         android:hint=""
         android:textColor="@color/white"
         android:textColorLink="@color/white"
@@ -26,10 +27,12 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
         android:text="@string/tittleWorkouts"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/seeker"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
@@ -37,9 +40,8 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buttonProfile"
-        android:layout_marginTop="50dp"
         android:backgroundTint="#716969"
+        android:text="@string/buttonProfile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
@@ -50,9 +52,8 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/tittleTrainer"
         android:backgroundTint="#716969"
+        android:text="@string/tittleTrainer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintHorizontal_bias="0.5"
@@ -63,9 +64,8 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Volver"
         android:backgroundTint="#716969"
+        android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -74,9 +74,9 @@
 
     <ListView
         android:id="@+id/historicList"
-        android:layout_width="408dp"
-        android:layout_height="308dp"
-        android:background="@color/white"
+        android:layout_width="331dp"
+        android:layout_height="317dp"
+        android:background="#EDDFDF"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -88,7 +88,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="721dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="785dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
