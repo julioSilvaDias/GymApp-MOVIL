@@ -4,7 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
@@ -12,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.fittrack.util.ThemeUtils
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Locale
 
 class MainActivityProfile : AppCompatActivity() {
 
@@ -25,9 +30,13 @@ class MainActivityProfile : AppCompatActivity() {
     private lateinit var buttonBack : Button
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private lateinit var switchMode: Switch
+    private lateinit var spinnerChangeLanguage: Spinner
     private lateinit var rootLayout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        ThemeUtils.setLocale(this, ThemeUtils.getLocale(this)?: "en")
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
 
@@ -40,11 +49,10 @@ class MainActivityProfile : AppCompatActivity() {
         textBirthdate = findViewById(R.id.textViewFechaNacimiento)
         buttonBack = findViewById(R.id.buttonVolverPerfil)
         switchMode = findViewById(R.id.switch1)
+        spinnerChangeLanguage = findViewById(R.id.spinnerChangeLanguage)
         rootLayout = findViewById(R.id.rootlayout)
 
         ThemeUtils.applyBackground(this, "profile")
-
-
 
         val isLightMode = getSharedPreferences("appPreferences", Context.MODE_PRIVATE)
             .getInt("currentBackgroundIndex", 0) == 1
@@ -67,6 +75,8 @@ class MainActivityProfile : AppCompatActivity() {
         findViewById<Button>(R.id.buttonVolverPerfil).setOnClickListener {
             finish()
         }
+
+        setUpSpinner()
     }
 
     private fun getAllData(username: String) {
@@ -94,4 +104,30 @@ class MainActivityProfile : AppCompatActivity() {
                 Toast.makeText(this, "Error General", Toast.LENGTH_SHORT).show()
             }
     }
+
+    private fun setUpSpinner(){
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.changeLanguage,
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        spinnerChangeLanguage.adapter = adapter
+
+        spinnerChangeLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedLanguage = if (position == 0) "en" else "es"
+                val currentLanguage = Locale.getDefault().language
+                if (selectedLanguage != currentLanguage) {
+                    ThemeUtils.setLocale(this@MainActivityProfile, selectedLanguage)
+                    recreate()
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+    }
+
 }

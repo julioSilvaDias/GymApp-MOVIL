@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FitTrack</string>
     <string name="tittleLogin">Inicio Sesion</string>
@@ -9,19 +10,19 @@
     <string name="name">Nombre: </string>
     <string name="surname">Apellido: </string>
     <string name="email">Email: </string>
-    <string name="birthdate">Fecha de Nacimiento: </string>
-    <string name="tittleWorkouts">Workouts</string>
+    <string name="birthdate">Fecha de nacimiento: </string>
+    <string name="tittleWorkouts">Entrenamientos</string>
     <string name="levelUser">Nivel: </string>
     <string name="rememberMe">Recordar</string>
-    <string name="buttonLogin">Iniciar sesión</string>
+    <string name="buttonLogin">Iniciar Sesion</string>
     <string name="buttonReportFit">Registrar</string>
     <string name="buttonRegister">Registrarse</string>
     <string name="buttonBack">Volver</string>
-    <string name="buttonFilter">Filtrar</string>
+    <string name="buttonFilter">Filtro</string>
     <string name="buttonProfile">Perfil</string>
     <string name="buttonReproduce">Reproducir</string>
     <string-array name="changeLanguage">
-        <item>English</item>
-        <item>Spanish</item>
+        <item>Inglés</item>
+        <item>Español</item>
     </string-array>
 </resources>
