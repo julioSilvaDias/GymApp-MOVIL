@@ -1,25 +1,25 @@
 <resources>
     <string name="app_name">FitTrack</string>
-    <string name="tittleLogin">Inicio Sesion</string>
-    <string name="tittleRegister">Registro</string>
-    <string name="tittleProfile">Perfil</string>
-    <string name="tittleTrainer">Entrenador</string>
-    <string name="user">Usuario: </string>
-    <string name="password">Contraseña: </string>
-    <string name="name">Nombre: </string>
-    <string name="surname">Apellido: </string>
+    <string name="tittleLogin">Login</string>
+    <string name="tittleRegister">Register</string>
+    <string name="tittleProfile">Profile</string>
+    <string name="tittleTrainer">Trainer</string>
+    <string name="user">User: </string>
+    <string name="password">Password: </string>
+    <string name="name">Name: </string>
+    <string name="surname">Surname: </string>
     <string name="email">Email: </string>
-    <string name="birthdate">Fecha de Nacimiento: </string>
+    <string name="birthdate">Birthdate: </string>
     <string name="tittleWorkouts">Workouts</string>
-    <string name="levelUser">Nivel: </string>
-    <string name="rememberMe">Recordar</string>
-    <string name="buttonLogin">Iniciar sesión</string>
-    <string name="buttonReportFit">Registrar</string>
-    <string name="buttonRegister">Registrarse</string>
-    <string name="buttonBack">Volver</string>
-    <string name="buttonFilter">Filtrar</string>
-    <string name="buttonProfile">Perfil</string>
-    <string name="buttonReproduce">Reproducir</string>
+    <string name="levelUser">Level: </string>
+    <string name="rememberMe">Remember me</string>
+    <string name="buttonLogin">Login</string>
+    <string name="buttonReportFit">Report Fit</string>
+    <string name="buttonRegister">Register</string>
+    <string name="buttonBack">Back</string>
+    <string name="buttonFilter">Filter</string>
+    <string name="buttonProfile">Profile</string>
+    <string name="buttonReproduce">Reproduce</string>
     <string-array name="changeLanguage">
         <item>English</item>
         <item>Spanish</item>

@@ -22,11 +22,14 @@ class MainActivityWorkouts : AppCompatActivity() {
     private lateinit var filteredList: ArrayList<Historic>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        ThemeUtils.setLocale(this, ThemeUtils.getLocale(this) ?: "en")
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workouts)
 
-       ThemeUtils.applyBackground(this, "login")
-       ThemeUtils.applyTextTheme(this)
+        ThemeUtils.applyBackground(this, "login")
+        ThemeUtils.applyTextTheme(this)
 
         val userId = intent.getStringExtra("id").toString()
         val username = intent.getStringExtra("username").toString()

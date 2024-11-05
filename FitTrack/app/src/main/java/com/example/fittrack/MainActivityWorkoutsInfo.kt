@@ -12,6 +12,9 @@ import com.example.fittrack.util.ThemeUtils
 
 class MainActivityWorkoutsInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        ThemeUtils.setLocale(this, ThemeUtils.getLocale(this) ?: "en")
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_workouts_info)
 

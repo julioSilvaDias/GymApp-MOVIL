@@ -21,6 +21,9 @@ class MainActivityLogin : AppCompatActivity() {
     private lateinit var rememberMeCheckBox: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        ThemeUtils.setLocale(this, ThemeUtils.getLocale(this) ?: "en")
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_login)
 
