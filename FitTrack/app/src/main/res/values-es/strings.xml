@@ -21,6 +21,9 @@
     <string name="buttonFilter">Filtro</string>
     <string name="buttonProfile">Perfil</string>
     <string name="buttonReproduce">Reproducir</string>
+    <string name="buttonAdd">Añadir</string>
+    <string name="buttonEliminate">Eliminar</string>
+    <string name="buttonUpdate">Modificar</string>
     <string-array name="changeLanguage">
         <item>Inglés</item>
         <item>Español</item>

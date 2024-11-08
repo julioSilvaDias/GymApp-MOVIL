@@ -27,7 +27,8 @@ class MainActivityProfile : AppCompatActivity() {
     private lateinit var textSurname: TextView
     private lateinit var textEmail: TextView
     private lateinit var textBirthdate: TextView
-    private lateinit var buttonBack : Button
+    private lateinit var buttonBack: Button
+
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private lateinit var switchMode: Switch
     private lateinit var spinnerChangeLanguage: Spinner
@@ -35,7 +36,7 @@ class MainActivityProfile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        ThemeUtils.setLocale(this, ThemeUtils.getLocale(this)?: "en")
+        ThemeUtils.setLocale(this, ThemeUtils.getLocale(this) ?: "en")
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
@@ -105,7 +106,7 @@ class MainActivityProfile : AppCompatActivity() {
             }
     }
 
-    private fun setUpSpinner(){
+    private fun setUpSpinner() {
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.changeLanguage,

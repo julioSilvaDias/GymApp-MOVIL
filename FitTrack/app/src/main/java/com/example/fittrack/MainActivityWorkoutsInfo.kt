@@ -18,7 +18,7 @@ class MainActivityWorkoutsInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_workouts_info)
 
-        ThemeUtils.applyBackground(this, "login")
+        ThemeUtils.applyBackground(this, "workouts")
         ThemeUtils.applyTextTheme(this)
 
         findViewById<Button>(R.id.button5).setOnClickListener {
