@@ -24,6 +24,14 @@
     <string name="buttonAdd">Añadir</string>
     <string name="buttonEliminate">Eliminar</string>
     <string name="buttonUpdate">Modificar</string>
+    <string name="filter">Escribe para filtrar</string>
+    <string name="workout">Workout</string>
+    <string name="level">Nivel: </string>
+    <string name="exercises">Ejercicios: </string>
+    <string-array name="userType">
+        <item>Usuario</item>
+        <item>Entrenador</item>
+    </string-array>
     <string-array name="changeLanguage">
         <item>Inglés</item>
         <item>Español</item>

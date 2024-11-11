@@ -15,7 +15,7 @@
     <string name="rememberMe">Remember me</string>
     <string name="buttonLogin">Login</string>
     <string name="buttonReportFit">Report Fit</string>
-    <string name="buttonRegister">Register</string>
+    <string name="buttonRegister">Sign in</string>
     <string name="buttonBack">Back</string>
     <string name="buttonFilter">Filter</string>
     <string name="buttonProfile">Profile</string>
@@ -23,6 +23,10 @@
     <string name="buttonAdd">Add</string>
     <string name="buttonEliminate">Eliminate</string>
     <string name="buttonUpdate">Update</string>
+    <string name="filter">Type for filter</string>
+    <string name="workout">Workout</string>
+    <string name="level">Level: </string>
+    <string name="exercises">Exercises: </string>
     <string-array name="userType">
         <item>User</item>
         <item>Trainer</item>

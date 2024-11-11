@@ -1,38 +1,62 @@
 package com.example.fittrack
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
+import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fittrack.util.ThemeUtils
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 
+private lateinit var adapter: WorkoutsAdapter
+private lateinit var workoutsList: ArrayList<Workout>
+private lateinit var filteredList: ArrayList<Workout>
+
 class MainActivityTrainer : AppCompatActivity() {
-
-    private lateinit var db:FirebaseFirestore
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         ThemeUtils.setLocale(this, ThemeUtils.getLocale(this) ?: "en")
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrenador)
-
-        db = FirebaseFirestore.getInstance()
-
-        ThemeUtils.applyBackground(this, "workouts")
+        ThemeUtils.applyBackground(this, "trainer")
         ThemeUtils.applyTextTheme(this)
 
-        findViewById<Button>(R.id.buttonUpdateFromTrainer).setOnClickListener {
-            updateWorkouts()
+        val textInput = findViewById<TextInputEditText>(R.id.textInputLayout)
+        val listView = findViewById<ListView>(R.id.listView2)
+        workoutsList = ArrayList()
+        filteredList = ArrayList()
+        adapter = WorkoutsAdapter(this, filteredList)
+        listView.adapter = adapter
+        getWorkouts()
+
+        textInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(i: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(i: Editable?) {
+                filterList(i.toString())
+            }
+        })
+
+        listView.setOnItemClickListener { _, _, position, _ ->
+            val selectedWorkout = workoutsList[position]
+
+            getVideo(selectedWorkout) { urlVideo ->
+                val intent = Intent(this, MainActivityWorkoutInfo::class.java)
+                intent.putExtra("workoutItem", selectedWorkout)
+                intent.putExtra("url", urlVideo)
+                startActivity(intent)
+            }
         }
 
         findViewById<Button>(R.id.buttonAddFromTrainer).setOnClickListener {
             addWorkouts()
-        }
-
-        findViewById<Button>(R.id.buttonEliminateFromTrainer).setOnClickListener {
-            eliminateWorkouts()
         }
 
         findViewById<Button>(R.id.buttonBackFromTrainer).setOnClickListener {
@@ -40,16 +64,68 @@ class MainActivityTrainer : AppCompatActivity() {
         }
     }
 
-    private fun updateWorkouts(){
+    private fun getWorkouts() {
+        val db = FirebaseFirestore.getInstance()
 
+        db.collection("Workouts")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val workout = document.toObject(Workout::class.java)
+                    workoutsList.add(workout)
+                }
+                filteredList.addAll(workoutsList)
+                adapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Database error. \n No history found", Toast.LENGTH_SHORT)
+                    .show()
+            }
     }
 
-    private fun addWorkouts(){
+    private fun getVideo(selectedWorkout: Workout, callback: (String) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val name = selectedWorkout.name
 
+        db.collection("Workouts")
+            .whereEqualTo("name", name)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    for (document in querySnapshot.documents) {
+                        val videoUrl = document.getString("URL")
+                        callback(videoUrl ?: "")
+                    }
+                } else {
+                    callback("")
+                }
+            }
+            .addOnFailureListener {
+                callback("")
+                Toast.makeText(this, "Database error. \n No history found", Toast.LENGTH_SHORT)
+                    .show()
+            }
     }
 
-    private fun eliminateWorkouts(){
+    private fun filterList(level: String) {
+        filteredList.clear()
 
+        if (level.isEmpty()) {
+            filteredList.addAll(workoutsList)
+        } else if (level == "Learner") {
+            filteredList.addAll(workoutsList.filter { it.level.toInt() == 0 })
+        } else if ( level == "Beginner") {
+            filteredList.addAll(workoutsList.filter { it.level.toInt() == 1 })
+        } else if ( level == "Intermediate") {
+            filteredList.addAll(workoutsList.filter { it.level.toInt() == 2 })
+        } else if ( level == "Advanced") {
+            filteredList.addAll(workoutsList.filter { it.level.toInt() == 3 })
+        }
+
+        adapter.notifyDataSetChanged()
     }
 
+    private fun addWorkouts() {
+
+    }
 }

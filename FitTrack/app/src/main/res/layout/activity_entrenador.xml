@@ -18,81 +18,56 @@
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddFromTrainer" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputLayout"
-        android:layout_width="352dp"
-        android:layout_height="61dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="text"
+        android:fontFamily="sans-serif"
+        android:hint="@string/filter"
+        android:inputType="textFilter"
         android:textColorHint="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/listView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTittleTrainer">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint"
-            android:textColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textViewTittleTrainer" />
 
     <ListView
         android:id="@+id/listView2"
-        android:layout_width="350dp"
-        android:layout_height="194dp"
+        android:layout_width="340dp"
+        android:layout_height="311dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
-    <Button
-        android:id="@+id/buttonUpdateFromTrainer"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:text="@string/buttonUpdate"
-        android:backgroundTint="#716969"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAddFromTrainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonAddFromTrainer"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:text="@string/buttonAdd"
-        android:backgroundTint="#716969"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUpdateFromTrainer" />
-
-    <Button
-        android:id="@+id/buttonEliminateFromTrainer"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:text="@string/buttonEliminate"
-        android:backgroundTint="#716969"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonBackFromTrainer"
-        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <Button
         android:id="@+id/buttonBackFromTrainer"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:text="@string/buttonBack"
         android:backgroundTint="#716969"
+        android:text="@string/buttonBack"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonEliminateFromTrainer"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddFromTrainer"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <Button
+        android:id="@+id/buttonAddFromTrainer"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#716969"
+        android:text="@string/buttonAdd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonBackFromTrainer"
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -103,8 +78,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_begin="163dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddFromTrainer" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -113,7 +87,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="780dp"
+        app:layout_constraintGuide_end="111dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView2" />
 
@@ -123,9 +97,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonUpdateFromTrainer"
         app:layout_constraintGuide_begin="240dp"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

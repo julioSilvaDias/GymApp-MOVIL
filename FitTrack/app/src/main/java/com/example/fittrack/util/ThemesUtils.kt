@@ -18,7 +18,8 @@ object ThemeUtils {
         "login" to arrayOf(R.drawable.fondologin, R.drawable.loginlight),
         "register" to arrayOf(R.drawable.fondoregister, R.drawable.registerlight),
         "workouts" to arrayOf(R.drawable.fondoworkouts, R.drawable.workoutslight),
-        "profile" to arrayOf(R.drawable.fondoprofile, R.drawable.profilelight)
+        "profile" to arrayOf(R.drawable.fondoprofile, R.drawable.profilelight),
+        "trainer" to arrayOf(R.drawable.fondoworkouts, R.drawable.workoutslight)
     )
 
     fun applyBackground(activity: AppCompatActivity, activityName: String){

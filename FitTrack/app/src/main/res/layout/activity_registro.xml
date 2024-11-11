@@ -8,60 +8,29 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="23dp">
 
-    <EditText
-        android:id="@+id/textViewIngresarFechaNacimientoRegistro"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:hint="@string/fechaNacimiento"
-        android:inputType="date"
-        android:text=""
+    <TextView
+        android:id="@+id/textViewTituloRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="@string/tittleRegister"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textColorHint="#FFFFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarUsuarioRegistro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarEmailRegistro"
-        tools:ignore="Autofill" />
-
-    <EditText
-        android:id="@+id/textViewIngresarNombreRegistro"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:hint="@string/nombre"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarApellidoRegistro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarPasswordRegistro"
-        tools:ignore="Autofill,DuplicateSpeakableTextCheck" />
-
-    <EditText
-        android:id="@+id/textViewIngresarPasswordRegistro"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:hint="@string/password"
-        android:inputType="numberPassword"
-        android:text=""
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarNombreRegistro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarUsuarioRegistro"
-        tools:ignore="Autofill,TextFields,DuplicateSpeakableTextCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
     <EditText
         android:id="@+id/textViewIngresarUsuarioRegistro"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:hint="@string/usuario"
+        android:hint="@string/user"
         android:inputType="text"
+        android:autofillHints="username"
         android:text=""
         android:textColor="@color/white"
         android:textColorHint="#FFFFFFFF"
@@ -69,31 +38,61 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro"
-        tools:ignore="Autofill" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro" />
 
-    <TextView
-        android:id="@+id/textViewTituloRegistro"
-        android:layout_width="150dp"
+    <EditText
+        android:id="@+id/textViewIngresarPasswordRegistro"
+        android:layout_width="270dp"
         android:layout_height="48dp"
-        android:text="@string/tituloRegistro"
-        android:fontFamily="@font/adlam_display"
-        android:textStyle="bold"
+        android:hint="@string/password"
+        android:inputType="numberPassword"
+        android:autofillHints="password"
+        android:text=""
         android:textColor="@color/white"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarUsuarioRegistro"
+        android:textColorHint="#FFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarNombreRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline"
-        tools:ignore="TextSizeCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarUsuarioRegistro" />
+
+    <EditText
+        android:id="@+id/textViewIngresarNombreRegistro"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:text=""
+        android:autofillHints="name"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarApellidoRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarPasswordRegistro" />
+
+    <EditText
+        android:id="@+id/textViewIngresarApellidoRegistro"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="@string/surname"
+        android:inputType="textPersonName"
+        android:autofillHints="surname"
+        android:text=""
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarEmailRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarNombreRegistro" />
 
     <EditText
         android:id="@+id/textViewIngresarEmailRegistro"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:autofillHints="text"
+        android:autofillHints="emailAddress"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:text=""
@@ -103,24 +102,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarApellidoRegistro"
-        tools:ignore="DuplicateSpeakableTextCheck,TextFields" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarApellidoRegistro" />
 
     <EditText
-        android:id="@+id/textViewIngresarApellidoRegistro"
+        android:id="@+id/textViewIngresarFechaNacimientoRegistro"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:hint="@string/apellido"
-        android:inputType="textPersonName"
+        android:hint="@string/birthdate"
+        android:inputType="date"
+        android:importantForAutofill="no"
         android:text=""
         android:textColor="@color/white"
         android:textColorHint="#FFFFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textViewIngresarEmailRegistro"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarNombreRegistro"
-        tools:ignore="Autofill,DuplicateSpeakableTextCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIngresarEmailRegistro" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -131,7 +129,7 @@
         android:overlapAnchor="false"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewIngresarFechaNacimientoRegistro" />
 
@@ -140,7 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#716969"
-        android:text="@string/botonRegistro"
+        android:text="@string/buttonRegister"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#716969"
-        android:text="@string/botonVolver"
+        android:text="@string/buttonBack"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
