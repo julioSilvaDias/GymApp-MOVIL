@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoworkouts"
-    tools:context=".MainActivityWorkoutsInfo">
+    tools:context=".MainActivityWorkoutsInfo"
+    tools:layout_editor_absoluteX="-125dp"
+    tools:layout_editor_absoluteY="15dp">
 
     <EditText
         android:id="@+id/nameWorkout"
@@ -22,7 +23,7 @@
         android:textColorHint="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/levelWorkout"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/url"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
@@ -40,7 +41,7 @@
         android:textColorHint="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/exercisesWorkout"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/url"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameWorkout" />
@@ -57,23 +58,33 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/url"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/listExercises"
+        app:layout_constraintEnd_toStartOf="@+id/url"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/levelWorkout" />
 
     <ImageView
         android:id="@+id/url"
-        android:layout_width="257dp"
-        android:layout_height="235dp"
+        android:layout_width="224dp"
+        android:layout_height="116dp"
         android:importantForAccessibility="no"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/listExercises"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exercisesWorkout"
+        app:layout_constraintStart_toEndOf="@+id/levelWorkout"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
         app:srcCompat="@drawable/ic_launcher_background" />
+
+    <ListView
+        android:id="@+id/listExercises"
+        android:layout_width="340dp"
+        android:layout_height="261dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercisesWorkout" />
 
     <Button
         android:id="@+id/buttonBack"

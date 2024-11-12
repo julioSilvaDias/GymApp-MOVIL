@@ -93,7 +93,6 @@ class MainActivityWorkouts : AppCompatActivity() {
 
         findViewById<Button>(R.id.button3).setOnClickListener {
             val intent = Intent(applicationContext, MainActivityTrainer::class.java)
-            intent.putExtra("userId", userId)
             startActivity(intent)
         }
 

@@ -1,3 +1,10 @@
 package com.example.fittrack
 
-class Exercise (var description : String, var nameExercise : String, var rest : Int, var sets : List<Int>)
+import java.io.Serializable
+
+class Exercise : Serializable {
+    var exerciseName: String = ""
+    var exerciseDescription: String = ""
+
+
+}

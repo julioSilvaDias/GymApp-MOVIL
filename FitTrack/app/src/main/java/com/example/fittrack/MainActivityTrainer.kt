@@ -10,13 +10,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fittrack.util.ThemeUtils
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 
-private lateinit var adapter: WorkoutsAdapter
-private lateinit var workoutsList: ArrayList<Workout>
-private lateinit var filteredList: ArrayList<Workout>
 
 class MainActivityTrainer : AppCompatActivity() {
+    private lateinit var adapter: WorkoutsAdapter
+    private lateinit var workoutsList: ArrayList<Workout>
+    private lateinit var filteredList: ArrayList<Workout>
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeUtils.setLocale(this, ThemeUtils.getLocale(this) ?: "en")
         super.onCreate(savedInstanceState)
@@ -52,11 +54,14 @@ class MainActivityTrainer : AppCompatActivity() {
                 intent.putExtra("workoutItem", selectedWorkout)
                 intent.putExtra("url", urlVideo)
                 startActivity(intent)
+                finish()
             }
         }
 
         findViewById<Button>(R.id.buttonAddFromTrainer).setOnClickListener {
-            addWorkouts()
+            val intent = Intent(this, MainActivityAddWorkout::class.java)
+            startActivity(intent)
+            finish()
         }
 
         findViewById<Button>(R.id.buttonBackFromTrainer).setOnClickListener {
@@ -65,13 +70,14 @@ class MainActivityTrainer : AppCompatActivity() {
     }
 
     private fun getWorkouts() {
-        val db = FirebaseFirestore.getInstance()
+        val db = Firebase.firestore
 
         db.collection("Workouts")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val workout = document.toObject(Workout::class.java)
+                    workout.id = document.id
                     workoutsList.add(workout)
                 }
                 filteredList.addAll(workoutsList)
@@ -84,7 +90,7 @@ class MainActivityTrainer : AppCompatActivity() {
     }
 
     private fun getVideo(selectedWorkout: Workout, callback: (String) -> Unit) {
-        val db = FirebaseFirestore.getInstance()
+        val db = Firebase.firestore
         val name = selectedWorkout.name
 
         db.collection("Workouts")
@@ -123,9 +129,5 @@ class MainActivityTrainer : AppCompatActivity() {
         }
 
         adapter.notifyDataSetChanged()
-    }
-
-    private fun addWorkouts() {
-
     }
 }

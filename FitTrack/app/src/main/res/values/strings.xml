@@ -27,6 +27,7 @@
     <string name="workout">Workout</string>
     <string name="level">Level: </string>
     <string name="exercises">Exercises: </string>
+    <string name="video">Video: </string>
     <string-array name="userType">
         <item>User</item>
         <item>Trainer</item>

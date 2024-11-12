@@ -21,7 +21,7 @@ class WorkoutsAdapter(context: Context, dataSource: ArrayList<Workout>) :
         val viewHolder: ViewHolder
 
         if (convertView == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.item_historic, parent, false)
+            view = LayoutInflater.from(context).inflate(R.layout.item_workout, parent, false)
             viewHolder = ViewHolder()
             viewHolder.name = view.findViewById(R.id.name)
             viewHolder.level = view.findViewById(R.id.level)
